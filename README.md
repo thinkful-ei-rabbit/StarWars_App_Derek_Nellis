@@ -24,7 +24,7 @@
     </a>
     <br />
     <br />
-    <a href="https://github.com/thinkful-ei-rabbit/repo">"Vercel" Demo</a>
+    <a href="https://star-wars-app-black.vercel.app/">"Vercel" Demo</a>
     ·
     <a href="https://github.com/thinkful-ei-rabbit/StarWars_App_Derek_Nellis/issues">Report Bug</a>
     ·
@@ -110,6 +110,7 @@
 ## Sass and Fluid Element Sizing:
 1. For the **@mixin "fluid-type"**, I've adapted code written by **Indrek Paas https://gist.github.com/indrekpaas** he's got some other very clever Sass stuff as well.
 2. For the loading icon, I adapted **this codepen https://codepen.io/alanshortis/pen/eJLVXr?editors=1100** with minor adjustments to fit the needs of this app
+3. Obviously, minimal styling was used here. Mainly, this build was a study on functional skills, less so on graphical techniques
 
 ---
 ## Testing

@@ -2,9 +2,8 @@
 -=TYPOGRAPHY=-   *
 -=GLOBAL=-       *
 -=HEADER=-       *
--=PRIMARY=-      *
--=SIDEBAR=-      *
--=FOOTER=-       *
+-=SEARCH BAR=-   *
+-=RESULTS=-      *
 * * * * * * * * */
 
 // =============== //
@@ -86,18 +85,18 @@ strike, strong, sub, sup, tt, var, b, u, i,
 dl, dt, dd, ol, ul, li, button, caption, input,
 fieldset, form, label, legend, output, table,
 textarea, tbody, tfoot, thead, tr, th, td,
-article, aside, audio, canvas, details, embed,
+article, audio, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 main, mark, menu, nav, option, output, ruby,
 section, select, summary, time, video {
-  border: 0;
-  border-collapse: collapse;
+  // border: 0;
+  // border-collapse: collapse;
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 0;
-  text-decoration: none;
-  vertical-align: baseline;
+  // text-decoration: none;
+  // vertical-align: baseline;
 }
 
 blockquote, button, caption, dd, dt, figcaption,
@@ -190,6 +189,7 @@ code, .code {
 }
 
 body {
+  background-color: #f7f7f7;
   @include fluid-type(font-size, 320px, 1400px, 16px, 26px);
 }
 
@@ -197,20 +197,100 @@ body {
      -=HEADER=-
    =============== */
 
-
-
-/* ===============
-     -=PRIMARY=-
-   =============== */
-
-
+.main-header {
+  margin: 10px 0;
+  align-self: center;
+}
 
 /* ===============
-     -=SIDEBAR=-
+   -=SEARCH BAR=-
    =============== */
 
+.search-bar, .results {
+  margin-bottom: 20px;
+  @include fluid-type(margin-left margin-right, 320px, 1680px, 10px, 550px)
+}
 
+.search-bar form {
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.form-search {
+  flex-direction: row;
+}
+
+.form-search > * {
+  margin-right: 5px;
+  padding: 2px 5px;
+}
+
+.submit {
+  font-weight: bold;
+  padding-top: 3px;
+  font-size: large;
+}
 
 /* ===============
-     -=FOOTER=-
+     -=RESULTS=-
    =============== */
+
+.results {
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
+.result-box {
+  width: 30%;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #000
+}
+
+/*
+|--------------------------------------------------------------------------
+| LOADER FROM CODEPEN
+|--------------------------------------------------------------------------
+|
+| Find it here:
+| https://codepen.io/alanshortis/pen/eJLVXr?editors=1100
+*/
+
+$base-line-height: 24px;
+$color: #000;
+$off-color: rgba($color, 0.2);
+$pulse-duration: 750ms;
+
+@keyframes pulse {
+  50% {
+    background: $color;
+  }
+}
+
+.loading-screen {
+  position: relative;
+  align-self: center;
+  width: ($base-line-height / 4);
+  height: $base-line-height;
+  background: $off-color;
+  animation: pulse $pulse-duration infinite;
+  animation-delay: ($pulse-duration / 3);
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    height: ($base-line-height / 1.5);
+    width: ($base-line-height / 4);
+    background: $off-color;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: pulse $pulse-duration infinite;
+  }
+  &:before {
+    left: -($base-line-height / 2);
+  }
+  &:after {
+    left: ($base-line-height / 2);
+    animation-delay: ($pulse-duration / 1.5);
+  }
+}
